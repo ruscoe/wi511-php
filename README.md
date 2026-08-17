@@ -357,3 +357,100 @@ $response = $api->getAlerts();
 
 var_dump($response);
 ```
+
+## Travel Times
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WITravelTimes($api_key);
+
+$response = $api->getTravelTimes();
+
+var_dump($response);
+```
+
+The response:
+
+```
+array(402) {
+  [0]=>
+  object(stdClass)#35 (13) {
+    ["Id"]=>
+    string(4) "3736"
+    ["RoadwayName"]=>
+    string(8) "I-39/90 "
+    ["Description"]=>
+    string(40) "I-39/90 NB Illinois State Line to WIS 26"
+    ["Distance"]=>
+    string(2) "16"
+    ["NormalTime"]=>
+    string(2) "14"
+    ["CurrentTime"]=>
+    string(2) "14"
+    ["Delay"]=>
+    string(1) "0"
+    ["Region"]=>
+    string(4) "Rock"
+    ["StartLatitude"]=>
+    string(9) "42.495529"
+    ["StartLongitude"]=>
+    string(10) "-88.992922"
+    ["EndLatitude"]=>
+    string(8) "42.72507"
+    ["EndLongitude"]=>
+    string(10) "-88.991537"
+    ["Waypoints"]=>
+    array(4) {
+      [0]=>
+      object(stdClass)#33 (4) {
+        ["RoadwayName"]=>
+        string(13) "I-39/90 North"
+        ["Direction"]=>
+        string(1) "N"
+        ["Latitude"]=>
+        float(42.495529)
+        ["Longitude"]=>
+        float(-88.992922)
+      }
+      [1]=>
+      object(stdClass)#19 (4) {
+        ["RoadwayName"]=>
+        string(13) "I-39/90 North"
+        ["Direction"]=>
+        string(1) "N"
+        ["Latitude"]=>
+        float(42.49552943)
+        ["Longitude"]=>
+        float(-88.99292174)
+      }
+      [2]=>
+      object(stdClass)#28 (4) {
+        ["RoadwayName"]=>
+        string(13) "I-39/90 North"
+        ["Direction"]=>
+        string(1) "N"
+        ["Latitude"]=>
+        float(42.72506967)
+        ["Longitude"]=>
+        float(-88.99153741)
+      }
+      [3]=>
+      object(stdClass)#21 (4) {
+        ["RoadwayName"]=>
+        string(13) "I-39/90 North"
+        ["Direction"]=>
+        string(1) "N"
+        ["Latitude"]=>
+        float(42.72507)
+        ["Longitude"]=>
+        float(-88.991537)
+      }
+    }
+  }
+}
+```
