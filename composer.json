@@ -1,0 +1,26 @@
+{
+    "name": "ruscoe/wi511-php",
+    "version": "0.0.1",
+    "type": "library",
+    "description": "PHP library for the Wisconsin 511 API",
+    "homepage": "https://github.com/ruscoe/wi511-php",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Dan Ruscoe",
+            "email": "danruscoe@protonmail.com"
+        }
+    ],
+    "require": {
+        "php": ">=8.1.0",
+        "guzzlehttp/guzzle": "^7.5"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "^3.11"
+    },
+    "autoload": {
+        "psr-4": {
+          "WI511\\": "src/"
+        }
+    }
+}
