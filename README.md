@@ -254,3 +254,92 @@ array(1175) {
   }
 }
 ```
+
+### Traffic Events
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WIEvents($api_key);
+
+$response = $api->getEvents();
+
+var_dump($response);
+```
+
+The response:
+
+```
+array(1621) {
+  [0]=>
+  object(stdClass)#35 (27) {
+    ["ID"]=>
+    int(566011)
+    ["SourceId"]=>
+    string(15) "WisLCS-268178-1"
+    ["Organization"]=>
+    string(4) "WZDx"
+    ["RoadwayName"]=>
+    string(4) "I-94"
+    ["DirectionOfTravel"]=>
+    string(1) "W"
+    ["Description"]=>
+    string(125) "Roadwork - Mainline Right Lane Closed on I-94 WB from WIS 175 NB-STADIUM INTCHG (BRIDGE CROSSING) to BRIDGE (BRIDGE CROSSING)"
+    ["Reported"]=>
+    int(1762943400)
+    ["LastUpdated"]=>
+    int(1772744304)
+    ["StartDate"]=>
+    int(1762943400)
+    ["PlannedEndDate"]=>
+    int(1826344799)
+    ["LanesAffected"]=>
+    string(23) "2 lane(s) of 5 blocked."
+    ["Latitude"]=>
+    float(43.0337705435589)
+    ["Longitude"]=>
+    float(-87.969008234053)
+    ["LatitudeSecondary"]=>
+    float(43.0337146647057)
+    ["LongitudeSecondary"]=>
+    float(-87.9694979127897)
+    ["EventType"]=>
+    string(8) "roadwork"
+    ["EventSubType"]=>
+    string(8) "roadwork"
+    ["IsFullClosure"]=>
+    bool(false)
+    ["Severity"]=>
+    string(7) "Unknown"
+    ["Comment"]=>
+    string(0) ""
+    ["EncodedPolyline"]=>
+    string(100) "a`teGhm|wOJ`BBnAFzCHhBZvAhB~FfAxEvCnLBd@pBzLdBhLBPV|AR~A@jTHbAIdG?^?fDCpFB|@A`DEbRb@dUJ`DTnFDjALnB@H"
+    ["Restrictions"]=>
+    object(stdClass)#33 (4) {
+      ["Width"]=>
+      float(23)
+      ["Height"]=>
+      NULL
+      ["Weight"]=>
+      NULL
+      ["Speed"]=>
+      NULL
+    }
+    ["DetourPolyline"]=>
+    NULL
+    ["DetourInstructions"]=>
+    NULL
+    ["Recurrence"]=>
+    string(0) ""
+    ["RecurrenceSchedules"]=>
+    string(0) ""
+    ["County"]=>
+    string(9) "Milwaukee"
+  }
+}
+```
