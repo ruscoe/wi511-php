@@ -17,7 +17,7 @@ class WIWinterRoads extends WIAPI
      *
      * @return object
      *
-     * @see https://511wi.gov/api/v3/get/winterroads
+     * @see https://511wi.gov/help/endpoint/winterroads
      */
     public function getWinterRoads()
     {

@@ -17,7 +17,7 @@ class WITruckParking extends WIAPI
      *
      * @return object
      *
-     * @see https://511wi.gov/api/v2/get/truckparking
+     * @see https://511wi.gov/help/endpoint/truckparking
      */
     public function getTruckParking()
     {
