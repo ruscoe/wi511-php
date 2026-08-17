@@ -71,4 +71,29 @@ class WICameras extends WIAPI
 
         return $region_cameras;
     }
+
+    /**
+     * Gets available cameras by county.
+     *
+     * @param string $county the camera county
+     *
+     * @return array
+     *
+     * @see https://511wi.gov/help/endpoint/cameras
+     */
+    public function getCamerasByCounty($county)
+    {
+        $cameras = $this->request('GET', '/get/cameras');
+
+        $county_cameras = [];
+
+        $total_cameras = count($cameras);
+        for ($i = 0; $i < $total_cameras; $i++) {
+            if ($cameras[$i]->County == $county) {
+                $county_cameras[] = $cameras[$i];
+            }
+        }
+
+        return $county_cameras;
+    }
 }
