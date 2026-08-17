@@ -212,3 +212,45 @@ array(15) {
   }
 }
 ```
+
+## Winter Road Conditions
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WIWinterRoads($api_key);
+
+$response = $api->getWinterRoads();
+
+var_dump($response);
+```
+
+The response:
+
+```
+array(1175) {
+  [0]=>
+  object(stdClass)#35 (8) {
+    ["Id"]=>
+    int(2706)
+    ["LocationDescription"]=>
+    string(42) "STH 83, Illinois St. line to E jct. STH 50"
+    ["Overall Condition"]=>
+    string(6) "Normal"
+    ["AreaName"]=>
+    string(7) "Kenosha"
+    ["RoadwayName"]=>
+    string(5) "WI-83"
+    ["EncodedPolyline"]=>
+    string(218) "cbybG~fyxO?a@|@_@^OJErAg@TIbBm@dBu@bBs@PG`Bi@b@O@?z@WZKvAa@lA]~Ac@NE|K}CjKiDpKaDtGkBr@QlBk@lBi@nA]lPcF|ZgJnx@}UvJwCpUiHfBi@rAa@tA[rASpS_CTAfRwB|OgBvR{BvPyBnC[jRyBbGs@dSeChU_C`CYbCU`CWbCYfCY~BUb@G~AUp@IjCYzBWd@E`BMx@@H?"
+    ["LastUpdated"]=>
+    int(1787006123)
+    ["RoadSurface"]=>
+    string(3) "Dry"
+  }
+}
+```
