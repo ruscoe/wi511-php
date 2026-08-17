@@ -139,3 +139,76 @@ DOWNTOWN	16 MIN"
   }
 }
 ```
+
+### Truck Parking
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WITruckParking($api_key);
+
+$response = $api->getTruckParking();
+
+var_dump($response);
+```
+
+The response:
+
+```
+array(15) {
+  [0]=>
+  object(stdClass)#35 (10) {
+    ["Id"]=>
+    int(1)
+    ["FacilityName"]=>
+    string(42) "Portage Rest Area #11, Columbia County, WI"
+    ["Roadway"]=>
+    string(19) "I-39/90/94 EB exit "
+    ["TotalParkingSpaces"]=>
+    string(2) "68"
+    ["AvailableParkingSpaces"]=>
+    string(2) "47"
+    ["Trend"]=>
+    string(7) "FILLING"
+    ["Open"]=>
+    string(3) "Yes"
+    ["Latitude"]=>
+    float(43.428772)
+    ["Longitude"]=>
+    float(-89.483492)
+    ["Amenities"]=>
+    array(13) {
+      [0]=>
+      string(27) "Men's and women's restrooms"
+      [1]=>
+      string(24) "Family/assisted restroom"
+      [2]=>
+      string(22) "Handicapped accessible"
+      [3]=>
+      string(30) "Seasonal prairie walking paths"
+      [4]=>
+      string(20) "Children's play area"
+      [5]=>
+      string(14) "Drinking water"
+      [6]=>
+      string(16) "Vending machines"
+      [7]=>
+      string(26) "Travel/weather information"
+      [8]=>
+      string(19) "Telephones plus TTY"
+      [9]=>
+      string(22) "Picnic area and tables"
+      [10]=>
+      string(17) "Pet exercise area"
+      [11]=>
+      string(15) "Recycling areas"
+      [12]=>
+      string(26) "Diaper changing facilities"
+    }
+  }
+}
+```
