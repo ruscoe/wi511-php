@@ -46,4 +46,29 @@ class WICameras extends WIAPI
 
         return null;
     }
+
+    /**
+     * Gets available cameras by region.
+     *
+     * @param string $region the camera region
+     *
+     * @return array
+     *
+     * @see https://511wi.gov/help/endpoint/cameras
+     */
+    public function getCamerasByRegion($region)
+    {
+        $cameras = $this->request('GET', '/get/cameras');
+
+        $region_cameras = [];
+
+        $total_cameras = count($cameras);
+        for ($i = 0; $i < $total_cameras; $i++) {
+            if ($cameras[$i]->Region == $region) {
+                $region_cameras[] = $cameras[$i];
+            }
+        }
+
+        return $region_cameras;
+    }
 }
