@@ -1,1 +1,44 @@
 # 511 Wisconsin API PHP Library
+
+An unofficial library for the Wisconsin 511 API.
+
+![release](https://img.shields.io/github/v/release/ruscoe/wi511-php)
+
+## Requirements
+
+* PHP 8.1 or above
+* [Composer](https://getcomposer.org)
+* A [Wisconsin 511 API key](https://511wi.gov/developers/doc)
+
+## Quick set up
+
+`git clone git@github.com:ruscoe/wi511-php.git`
+
+`cd wi511-php`
+
+`composer install`
+
+## Usage examples
+
+The following examples assume you store your API key in an environment variable.
+To do this on a Linux or MacOS system, run:
+
+`export WI511_API_KEY=d605...`
+
+Be sure to substitute your own API key after `WI511_API_KEY=`.
+
+### Cameras
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WICameras($api_key);
+
+$response = $api->getCameras();
+
+var_dump($response);
+```
