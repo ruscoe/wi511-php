@@ -343,3 +343,17 @@ array(1621) {
   }
 }
 ```
+
+## Alerts
+
+```php
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WIAlerts($api_key);
+
+$response = $api->getAlerts();
+
+var_dump($response);
+```
