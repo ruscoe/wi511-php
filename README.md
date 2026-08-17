@@ -1,4 +1,4 @@
-# 511 Wisconsin API PHP Library
+# Wisconsin 511 API PHP Library
 
 An unofficial library for the Wisconsin 511 API.
 
