@@ -90,3 +90,52 @@ array(489) {
   }
 }
 ```
+
+### Message Signs
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WIMessageSigns($api_key);
+
+$response = $api->getMessageSigns();
+
+var_dump($response);
+```
+
+The response:
+
+```
+array(170) {
+  [0]=>
+  object(stdClass)#35 (9) {
+    ["Id"]=>
+    string(11) "ATMS_DMS--1"
+    ["Name"]=>
+    string(27) "I-41/894 NB @ Cleveland Ave"
+    ["Roadway"]=>
+    string(8) "I-41/894"
+    ["DirectionOfTravel"]=>
+    string(10) "Northbound"
+    ["Messages"]=>
+    array(1) {
+      [0]=>
+      string(49) "BARKER RD	11 MIN
+CAPITOL DR	8 MIN
+DOWNTOWN	16 MIN"
+    }
+    ["Latitude"]=>
+    float(42.99461)
+    ["Longitude"]=>
+    float(-88.03796)
+    ["LastUpdated"]=>
+    int(1787006108)
+    ["County"]=>
+    string(9) "Milwaukee"
+  }
+}
+```
