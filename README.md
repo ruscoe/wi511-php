@@ -38,6 +38,22 @@ $api_key = getenv('WI511_API_KEY');
 
 $api = new WI511\WICameras($api_key);
 
+$response = $api->saveCameraImage(468, 'camera.png');
+```
+
+The response:
+
+![camera.png](samples/camera.png)
+
+```php
+<?php
+
+require __DIR__ . '/vendor/autoload.php';
+
+$api_key = getenv('WI511_API_KEY');
+
+$api = new WI511\WICameras($api_key);
+
 $response = $api->getCameras();
 
 var_dump($response);
