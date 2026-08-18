@@ -96,4 +96,40 @@ class WICameras extends WIAPI
 
         return $county_cameras;
     }
+
+    /**
+     * Saves a camera image.
+     *
+     * @param int    $id     the camera ID
+     * @param string $output the file to write the image to
+     *
+     * @return bool true if camera image is saved
+     *
+     * @see https://511wi.gov/help/endpoint/cameras
+     */
+    public function saveCameraImage($id, $output)
+    {
+        $camera = $this->getCamera($id);
+
+        if ($camera !== null) {
+            $url = $camera->Views[0]->Url;
+
+            $ch = curl_init($url);
+
+            curl_setopt_array($ch, [
+                CURLOPT_RETURNTRANSFER => true,
+                CURLOPT_FOLLOWLOCATION => true,
+                CURLOPT_TIMEOUT => 15,
+                CURLOPT_USERAGENT => 'PHP library for the Wisconsin 511 API (https://github.com/ruscoe/wi511-php)',
+            ]);
+
+            $image = curl_exec($ch);
+
+            curl_close($ch);
+
+            return (file_put_contents($output, $image) !== false);
+        }
+
+        return false;
+    }
 }
