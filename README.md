@@ -363,6 +363,8 @@ array(1621) {
 ## Alerts
 
 ```php
+<?php
+
 require __DIR__ . '/vendor/autoload.php';
 
 $api_key = getenv('WI511_API_KEY');
